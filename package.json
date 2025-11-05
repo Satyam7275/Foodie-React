@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is Namaste-React by Satyam Mishra",
+  "main": "App.js",
+  "scripts": {
+    
+    
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Satyam7275/Namaste-React.git"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react",
+    "satyam",
+    "mishra"
+  ],
+  "author": "Satyam Mishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Satyam7275/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/Satyam7275/Namaste-React#readme"
+}
