@@ -2,27 +2,37 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is Namaste-React by Satyam Mishra",
-  "main": "App.js",
   "scripts": {
-    
-    
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Satyam7275/Namaste-React.git"
   },
-  "keywords": [
-    "react",
-    "namaste",
-    "react",
-    "satyam",
-    "mishra"
-  ],
+  "keywords": [],
   "author": "Satyam Mishra",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Satyam7275/Namaste-React/issues"
   },
-  "homepage": "https://github.com/Satyam7275/Namaste-React#readme"
+  "homepage": "https://github.com/Satyam7275/Namaste-React#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "autoprefixer": "^10.4.22",
+    "init": "^0.1.2",
+    "npx": "^10.2.2",
+    "parcel": "^2.16.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^6.30.2"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
