@@ -1,13 +1,16 @@
 import RestaurantCard,{withPromotedLabel} from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext} from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/uesOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
 const Body=()=>{
     const [listOfRestaurants,setListOfRestaurants]=useState([]);
     const [filteredRestaurant,setFilteredRestaurant]=useState([]);
-    const [searchText,setsearchText]=useState("");
+    const [searchText, setSearchText] = useState("");
+
+    
     
     const restaurantcardPromoted=withPromotedLabel(RestaurantCard);
 useEffect(()=>{
@@ -41,7 +44,7 @@ useEffect(()=>{
     Looks like you're offline!! please check your internet connection
   </h1>);
   //Condtional Rendering 
-
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
     return listOfRestaurants.length === 0 ?(
         <Shimmer/>
@@ -51,10 +54,10 @@ useEffect(()=>{
               <div className="search m-4 p-4 ">
                 <input 
                 type="text"
-                className="border border-solid border-black"
-                value={searchText}
+                className="border p-2 border-solid border-black"
+                value={setUserName}
                 onChange={(e)=>{
-                  setsearchText(e.target.value);
+                  setuserName(e.target.value);
                 }}
                 />
                 <button className="px-4 py-2 m-4 bg-green-100 rounded-lg"
@@ -74,6 +77,10 @@ useEffect(()=>{
                     );
                     setListOfRestaurants(filteredList);
                 }}>Top Rated Restaurants</button>
+                <label>UserName :</label>
+                <input className="p-2 border  border-black" 
+                value={loggedInUser}
+                onChange={(e)=>setUserName(e.target.value)}/>
                </div>
             </div>
             <div className="flex flex-wrap">
