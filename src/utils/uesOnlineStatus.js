@@ -1,25 +1,26 @@
-import { useEffect,useState} from "react";
+import { useEffect, useState } from "react";
 
-const { useState, useEffect } = require("react");
+const useOnlineStatus = () => {
+  const [onlineStatus, setOnlineStatus] = useState(true);
 
-const useOnlineStatus =()=>{
-const [OnlineStatus,setOnlineStatus]=useState(true);
+  useEffect(() => {
+    // check if window exists (important for Vercel / SSR)
+    if (typeof window === "undefined") return;
 
-    //check if online
-    useEffect(()=>{
+    const handleOnline = () => setOnlineStatus(true);
+    const handleOffline = () => setOnlineStatus(false);
 
-        window.addEventListener("offline",()=>{
-            setOnlineStatus(false);
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
 
-        });
-        window.addEventListener("online",()=>{
-            setOnlineStatus(true);
+    // cleanup
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
 
-        });
-
-    },[])
-    //boolean value 
-     return OnlineStatus;
-}
+  return onlineStatus; // boolean value
+};
 
 export default useOnlineStatus;
